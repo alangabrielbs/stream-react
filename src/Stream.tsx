@@ -168,18 +168,6 @@ export const StreamEmbed: FC<StreamProps> = ({
   // consumers may need to manually specify the iframe's src.
   const iframeSrc = validSrcUrl(src) ? src : computedSrc;
 
-  useProperty("muted", ref, muted);
-  useProperty("controls", ref, controls);
-  useProperty("src", ref, src);
-  useProperty("autoplay", ref, autoplay);
-  useProperty("currentTime", ref, currentTime);
-  useProperty("loop", ref, loop);
-  useProperty("preload", ref, preload);
-  useProperty("primaryColor", ref, primaryColor);
-  useProperty("letterboxColor", ref, letterboxColor);
-  useProperty("volume", ref, volume);
-  useProperty("playbackRate", ref, playbackRate);
-
   // instantiate API after properties are bound because we want undefined
   // values to be set before defining the properties
   useEffect(() => {
@@ -192,6 +180,18 @@ export const StreamEmbed: FC<StreamProps> = ({
         setVideoDimensions({ videoHeight, videoWidth });
     }
   }, []);
+
+  useProperty("muted", ref, muted);
+  useProperty("controls", ref, controls);
+  useProperty("src", ref, src);
+  useProperty("autoplay", ref, autoplay);
+  useProperty("currentTime", ref, currentTime);
+  useProperty("loop", ref, loop);
+  useProperty("preload", ref, preload);
+  useProperty("primaryColor", ref, primaryColor);
+  useProperty("letterboxColor", ref, letterboxColor);
+  useProperty("volume", ref, volume);
+  useProperty("playbackRate", ref, playbackRate);
 
   // bind events
   useEvent("abort", ref, onAbort);
